@@ -3,7 +3,12 @@
   "version": "0.1.2",
   "description": "JavaScript Modules for Modern Frontend & Backend Projects",
   "license": "MIT",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/"
+  },
+  "type": "module",
+  "files": ["lib"],
   "homepage": "https://github.com/eisgroup/ui-modules-pack",
   "repository": {
     "type": "git",
@@ -24,9 +29,9 @@
     "backend"
   ],
   "scripts": {
-    "release": "npm run files:copy && cd src && npm publish && cd ../ && npm run files:delete",
-    "files:copy": "cp {README.md,LICENSE,package.json} src/",
-    "files:delete": "rm src/{README.md,LICENSE,package.json}"
+    "build": "mkdir lib && cp -R src/ lib/",
+    "clear": "rm -R lib",
+    "release": "npm run build && npm publish && npm run clear"
   },
   "peerDependencies": {
     "@apollo/client": "*",

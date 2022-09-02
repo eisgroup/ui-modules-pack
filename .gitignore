@@ -2,6 +2,7 @@
 # Repo specific
 # ==============================================================================
 /dist
+/lib
 /**/public/static/**/*.css
 /unity
 repos/server/uploads
